@@ -36,13 +36,16 @@ public class Notepad {
 
     public void createRecurringAlarm() {
         var alarm = new RecurringAlarm();
+        alarm.setText(InputUtils.askString("Text"));
         alarm.setTime(InputUtils.askString("Time"));
         records.add(alarm);
     }
 
     public void createReminder() {
         var date = new Reminder();
+        date.setText(InputUtils.askString("Text"));
         date.setDate(InputUtils.askString("Date"));
+        date.setTime(InputUtils.askString("Time"));
         records.add(date);
     }
 }

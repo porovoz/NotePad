@@ -1,7 +1,7 @@
 package com.company;
 
 public class RecurringAlarm extends StickyNote {
-    private String text;
+
     private String time;
 
     public String getTime() {
@@ -10,16 +10,6 @@ public class RecurringAlarm extends StickyNote {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    @Override
-    public String getText() {
-        return text;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
     }
 
     @Override
