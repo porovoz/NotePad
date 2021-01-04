@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.*;
+
 public class Book extends Record {
     private String title;
     private String author;
@@ -27,6 +29,13 @@ public class Book extends Record {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    @Override
+    public void askData() {
+        title = InputUtils.askString("Title");
+        author = InputUtils.askString("Author");
+        isbn = InputUtils.askString("ISBN");
     }
 
     @Override

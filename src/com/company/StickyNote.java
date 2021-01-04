@@ -12,6 +12,11 @@ public class StickyNote extends Record {
     }
 
     @Override
+    public void askData() {
+        text = InputUtils.askString("Text");
+    }
+
+    @Override
     public String toString() {
         var str = super.toString();
         return String.format("%s; text: %s", str, text);

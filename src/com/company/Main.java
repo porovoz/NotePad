@@ -33,29 +33,14 @@ private static Notepad notepad = new Notepad();
     }
 
     private static void createRecord() {
-        var type= InputUtils.askString("Type");
-        switch (type) {
-            case "person":
-                notepad.createPerson();
-                break;
-            case "book":
-                notepad.createBook();
-                break;
-            case "note":
-                notepad.createStickyNote();
-                break;
-            case "alarm":
-                notepad.createRecurringAlarm();
-                break;
-            case "reminder":
-                notepad.createReminder();
-                break;
-            default:
-                System.out.println("Unknown type");
-        }
+        var strType = InputUtils.askString("Type");
+        var type = RecordType.valueOf(strType);
+        notepad.createRecord(type);
     }
 
+
     private static void showHelp() {
-        System.out.println("This is very helpful help. \n All commands: \n list - views a list of all records \n create - makes a new record in the list \n help - calls help menu \n exit - terminates the program");
+        System.out.println("All commands: \n list - views a list of all records \n create - makes a new record in the list \n -- BOOK - creates record book \n -- PERSON - creates record person \n" +
+                " -- NOTE - creates record sticky note \n -- ALARM - creates record recurring alarm \n -- REMINDER - creates record reminder \n -- PET - creates record pet \n help - calls help menu \n exit - terminates the program");
     }
 }

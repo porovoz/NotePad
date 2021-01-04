@@ -13,6 +13,11 @@ public class Reminder extends RecurringAlarm {
     }
 
 
+    @Override
+    public void askData() {
+        super.askData();
+        date = InputUtils.askString("Date");
+    }
 
     @Override
     public String toString() {
