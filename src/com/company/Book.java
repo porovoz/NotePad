@@ -43,4 +43,13 @@ public class Book extends Record {
         var str = super.toString();
         return String.format("%s; title: %s; author: %s; isbn: %s", str, title, author, isbn);
     }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || title.toLowerCase().contains(substr)
+                || author.toLowerCase().contains(substr)
+                || isbn.toLowerCase().contains(substr);
+
+    }
 }

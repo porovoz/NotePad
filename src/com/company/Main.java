@@ -15,6 +15,18 @@ private static Notepad notepad = new Notepad();
                 case "create":
                     createRecord();
                     break;
+                    case "find":
+                    findRecord();
+                    break;
+                case "due":
+                    listDue();
+                    break;
+                case "dismiss":
+                    dismiss();
+                    break;
+                    case "delete":
+                    deleteRecord();
+                    break;
                 case "help":
                     showHelp();
                     break;
@@ -26,6 +38,25 @@ private static Notepad notepad = new Notepad();
             }
         }
         System.out.println("Good bye!");
+    }
+
+    private static void dismiss() {
+        int id = InputUtils.askInt("ID");
+        notepad.dismiss(id);
+    }
+
+    private static void listDue() {
+        notepad.listDue();
+    }
+
+    private static void findRecord() {
+        var substr = InputUtils.askString("Substring to find");
+        notepad.findRecord(substr);
+    }
+
+    private static void deleteRecord() {
+        int id = InputUtils.askInt("ID");
+        notepad.delete(id);
     }
 
     private static void listRecords() {

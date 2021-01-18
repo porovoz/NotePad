@@ -2,7 +2,7 @@ package com.company;
 
 public class Pet extends Record {
     private String name;
-    private String species;
+    private Species species;
 
     public String getName() {
         return name;
@@ -12,24 +12,34 @@ public class Pet extends Record {
         this.name = name;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
+    }
+
+    @Override
+    public String toString () {
+        var str = super.toString();
+        return String.format("%s; name: %s; species: %s", str, name, species);
     }
 
     @Override
     public void askData() {
         name = InputUtils.askString("Name");
-        System.out.println("Available species: CAT, DOG, RABBIT, FISH, BIRD");
-        species = InputUtils.askString("Species");
+        for (Species S : Species.values()) {
+            System.out.println("Available species: " + S);
+        }
+        species = Species.valueOf(InputUtils.askString("Species"));
     }
 
     @Override
-    public String toString() {
-        var str = super.toString();
-        return String.format("%s; name: %s; species: %s", str, name, species);
+    public boolean contains(String substr) {
+        var strspecies = String.valueOf(species);
+        return super.contains(substr)
+                || name.toLowerCase().contains(substr)
+                || strspecies.toLowerCase().contains(substr);
     }
 }

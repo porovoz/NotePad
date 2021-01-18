@@ -19,5 +19,10 @@ public abstract class Record {
     }
 
     public abstract void askData();
+
+    public boolean contains(String substr) {
+        var strId = String.valueOf(id);
+        return strId.contains(substr);
+    }
 }
 

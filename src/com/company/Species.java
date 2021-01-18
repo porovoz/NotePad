@@ -5,7 +5,8 @@ public enum Species {
     DOG,
     RABBIT,
     FISH,
-    BIRD
+    BIRD;
+
 
 }
 

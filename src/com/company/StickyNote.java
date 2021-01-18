@@ -21,4 +21,10 @@ public class StickyNote extends Record {
         var str = super.toString();
         return String.format("%s; text: %s", str, text);
     }
+
+    @Override
+    public boolean contains(String substr) {
+        return super.contains(substr)
+                || text.toLowerCase().contains(substr);
+    }
 }
